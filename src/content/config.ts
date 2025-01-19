@@ -7,10 +7,7 @@ const blogCollection = defineCollection({
       title: z.string(),
       date: z.date(),
       description: z.string(),
-      // image: image().refine((img) => img.width < 1200, {
-      //   message: 'Image width must be less than 1200px'
-      // }),
-      image: z.string(),
+      image: image(),
 
       author: z.string(),
 

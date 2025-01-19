@@ -1,0 +1,49 @@
+---
+import MainLayout from '@layouts/MainLayout.astro'
+import { Image, Picture } from 'astro:assets'
+
+import post05Image from '@images/post-05.png'
+---
+
+<MainLayout title='Astro Images'>
+  <h1 class='text-4xl text-white mb-4'>Imágenes</h1>
+
+  <h2 class='text-xl text-white mt-4 mb-2'>No optimizada</h2>
+  <img
+    loading='eager'
+    src='/assets/images/post-05.png'
+    alt='Imagen pesada'
+    width='250'
+    height='250'
+  />
+
+  <h2 class='text-xl text-white mt-4 mb-2'>Quality Low</h2>
+  <Image src={post05Image} alt='Imagen pesada' width='250' height='250' quality='low' />
+
+  <h2 class='text-xl text-white mt-4 mb-2'>Quality High</h2>
+  <Image src={post05Image} alt='Imagen pesada' width='250' height='250' quality='high' />
+
+  <h2 class='text-xl text-white mt-4 mb-2'>Formatos</h2>
+  <Image src={post05Image} format='avif' width='250' height='250' alt='Imagen del post' />
+
+  <h2 class='text-xl text-white mt-4 mb-2'>Picture</h2>
+  <Picture
+    src={post05Image}
+    alt='Imagen del post'
+    widths={[240, 540, 720, post05Image.width]}
+    sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${post05Image.width}px`}
+    --
+  >
+    />
+
+    <div style={{ height: '3000px' }}></div>
+
+    <img
+      loading='lazy'
+      src='/assets/images/post-02.png'
+      alt='Imagen pesada'
+      width='250'
+      height='250'
+    />
+  </Picture>
+</MainLayout>

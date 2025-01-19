@@ -1,10 +1,9 @@
 ---
-import BlogPostTyped from '@components/BlogPostTyped.astro'
 import { siteConfig } from '@config/site-config'
+import BlogPost from '@components/BlogPost.astro'
 import MainLayout from '@layouts/MainLayout.astro'
-import { getCollection } from 'astro:content'
 
-const blogPosts = await getCollection('blog')
+const posts = await import.meta.glob('./posts-old/*.{md,mdx}', { eager: true })
 ---
 
 <MainLayout title='Astro Blog'>
@@ -17,8 +16,9 @@ const blogPosts = await getCollection('blog')
 
       <div class='grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2'>
         {
-          blogPosts.map((post: any) => {
-            return <BlogPostTyped post={post} />
+          Object.values(posts).map((post: any) => {
+            console.log(post)
+            return <BlogPost {...post} />
           })
         }
       </div>

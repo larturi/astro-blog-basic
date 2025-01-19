@@ -5,6 +5,8 @@ description: Aprende a desarrollar aplicaciones móviles con Flutter y Dart.
 author: john-smith
 image: 'images/post-02.png'
 tags: [Flutter, Mobile Development, Dart]
+isDraft: false
+
 ---
 
 # Empezando con Flutter

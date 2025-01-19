@@ -9,6 +9,8 @@ const blogCollection = defineCollection({
       description: z.string(),
       image: image(),
 
+      isDraft: z.boolean().default(false),
+
       // Relation
       author: reference('author'),
 

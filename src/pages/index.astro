@@ -4,7 +4,7 @@ import { siteConfig } from '@config/site-config'
 import MainLayout from '@layouts/MainLayout.astro'
 import { getCollection } from 'astro:content'
 
-const blogPosts = await getCollection('blog')
+const blogPosts = await getCollection('blog', (post) => post.data.isDraft === false)
 ---
 
 <MainLayout title='Astro Blog'>
